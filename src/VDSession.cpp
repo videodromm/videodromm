@@ -87,13 +87,13 @@ VDSession::VDSession(VDSettingsRef aVDSettings)
 		mGlslMixette = gl::GlslProg::create(mVDSettings->getDefaultVextexShaderString(), mVDSettings->getMixetteFragmentShaderString());
 		mGlslRender = gl::GlslProg::create(mVDSettings->getDefaultVextexShaderString(), mVDSettings->getPostFragmentShaderString());
 
-		fs::path mPostFilePath = getAssetPath("") / "post.glsl";
+		/*fs::path mPostFilePath = getAssetPath("") / "post.glsl";
 		if (!fs::exists(mPostFilePath)) {
 			mError = mPostFilePath.string() + " does not exist";
 			CI_LOG_V(mError);
 		}
 		mGlslRender = gl::GlslProg::create(mVDSettings->getDefaultVextexShaderString(), loadString(loadFile(mPostFilePath))); 
-		/*
+		
 		
 		fs::path mMixetteFilePath = getAssetPath("") / "mixette.glsl";
 		if (!fs::exists(mMixetteFilePath)) {
