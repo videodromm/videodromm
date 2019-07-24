@@ -193,7 +193,13 @@ namespace Videodromm
 			return shaderUniforms[aName].textureIndex;
 		}
 		float							getFloatUniformValueByName(string aName) {
-			return shaderUniforms[aName].floatValue;
+			if (aName.length() > 0) {
+				return shaderUniforms[aName].floatValue;
+			}
+			else {
+				CI_LOG_V("getFloatUniformValueByName name empty");
+				return 1.0f;
+			}
 		}
 		vec2							getVec2UniformValueByName(string aName) {
 			return shaderUniforms[aName].vec2Value;
@@ -253,7 +259,7 @@ namespace Videodromm
 		void							boolFromJson(const ci::JsonTree &json);
 		fs::path						mUniformsJson;
 
-		
+
 
 		void							createVec2Uniform(string aName, int aCtrlIndex, vec2 aValue = vec2(0.0));
 		void							createVec3Uniform(string aName, int aCtrlIndex, vec3 aValue = vec3(0.0));

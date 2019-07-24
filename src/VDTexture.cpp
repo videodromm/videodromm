@@ -323,8 +323,8 @@ namespace Videodromm {
 	{
 		VDTexture::fromXml(xml);
 		// retrieve attributes specific to this type of texture
-		mFlipV = xml.getAttributeValue<bool>("flipv", "true"); // default true
-		mFlipH = xml.getAttributeValue<bool>("fliph", "true"); // default true
+		mFlipV = xml.getAttributeValue<bool>("flipv", "false"); // default true
+		mFlipH = xml.getAttributeValue<bool>("fliph", "false"); // default true
 		mPath = xml.getAttributeValue<string>("path", "");
 		mFolder = xml.getAttributeValue<string>("folder", "");
 		mName = mPath;
@@ -520,7 +520,7 @@ namespace Videodromm {
 					// start profiling
 					auto start = Clock::now();
 
-					mSequenceTextures.push_back(ci::gl::Texture::create(loadImage(fileToLoad), gl::Texture::Format().loadTopDown()));
+					mSequenceTextures.push_back(ci::gl::Texture::create(loadImage(fileToLoad), gl::Texture::Format().loadTopDown(mFlipV))); // 20190724
 					mCurrentLoadedFrame = mFramesLoaded;
 					mFramesLoaded++;
 					auto end = Clock::now();

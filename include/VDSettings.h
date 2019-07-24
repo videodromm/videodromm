@@ -51,7 +51,7 @@ namespace Videodromm {
 		static const int			ISPEED = 22;
 		static const int			IPIXELX = 23;
 		static const int			IPIXELY = 24;
-		static const int			IFREQ0 = 25;
+
 		static const int			IBR = 26;
 		static const int			IBG = 27;
 		static const int			IBB = 28;
@@ -76,8 +76,7 @@ namespace Videodromm {
 		static const int			IWEIGHT5 = 36;
 		static const int			IWEIGHT6 = 37;
 		static const int			IWEIGHT7 = 38;
-		//static const int			IBA = 39;
-		static const int			IFREQ1 = 39;
+
 		static const int			ICONTOUR = 40;
 		static const int			IROTATIONSPEED = 41;
 		static const int			IMOUSEX = 42;
@@ -87,8 +86,7 @@ namespace Videodromm {
 		static const int			IVFALLOFF = 46;
 		static const int			TIME = 47;
 		
-		static const int			IFREQ2 = 48;
-		static const int			IFREQ3 = 49;
+
 		static const int			IBLENDMODE = 50;
 
 		// int
@@ -119,6 +117,10 @@ namespace Videodromm {
 		static const int			SRCXRIGHT = 131;
 		static const int			SRCYLEFT = 132;
 		static const int			SRCYRIGHT = 133;
+		static const int			IFREQ0 = 140;
+		static const int			IFREQ1 = 141;
+		static const int			IFREQ2 = 142;
+		static const int			IFREQ3 = 143;
 		// texture modes
 		static const int			TEXTUREMODEMIX = 0;				// mix two shaders
 		static const int			TEXTUREMODEAUDIO = 1;			// audio spectrum

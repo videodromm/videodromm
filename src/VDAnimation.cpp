@@ -81,7 +81,7 @@ VDAnimation::VDAnimation(VDSettingsRef aVDSettings) {
 		// ratio
 		createFloatUniform("iRatio", mVDSettings->IRATIO, 20.0f, 0.00000000001f, 20.0f); // 11
 		// zoom
-		createFloatUniform("iZoom", mVDSettings->IZOOM, 1.0f, -3.0f, 3.0f); // 12
+		createFloatUniform("iZoom", mVDSettings->IZOOM, 1.0f, 0.95f, 1.1f); // 12
 		// Audio multfactor 
 		createFloatUniform("iAudioMult", mVDSettings->IAUDIOX, 1.0f, 0.01f, 12.0f); // 13
 		// exposure
@@ -106,8 +106,7 @@ VDAnimation::VDAnimation(VDSettingsRef aVDSettings) {
 		createFloatUniform("pixelX", mVDSettings->IPIXELX, 1.0f, 0.01f, 100.0f); // 23
 		// slitscan (or other) Param2 
 		createFloatUniform("pixelY", mVDSettings->IPIXELY, 1.0f, 0.01f, 100.0f); // 24
-		// iFreq0  
-		createFloatUniform("iFreq0", mVDSettings->IFREQ0, 0.0f, 0.01f, 256.0f); // 25 				
+			
 		 // background red
 		createFloatUniform("iBR", mVDSettings->IBR, 0.1f); // 26 was 36
 		// background green
@@ -141,8 +140,6 @@ VDAnimation::VDAnimation(VDSettingsRef aVDSettings) {
 		// weight texture 
 		createFloatUniform("iWeight7", mVDSettings->IWEIGHT7, 0.0f); // 38
 
-		// iFreq1  
-		createFloatUniform("iFreq1", mVDSettings->IFREQ1, 0.0f, 0.01f, 256.0f); // 39 was 26
 		// contour
 		createFloatUniform("iContour", mVDSettings->ICONTOUR, 0.0f, 0.0f, 0.5f); // 40
 		// RotationSpeed
@@ -160,10 +157,7 @@ VDAnimation::VDAnimation(VDSettingsRef aVDSettings) {
 		createFloatUniform("iVFallOff", mVDSettings->IVFALLOFF, 0.31f, 0.0f, 1.0f); // 46
 		// hydra time
 		createFloatUniform("time", mVDSettings->TIME, 0.0f); // 47
-		// iFreq2  
-		createFloatUniform("iFreq2", mVDSettings->IFREQ2, 0.0f, 0.01f, 256.0f); // 48 was 27
-		// iFreq3  
-		createFloatUniform("iFreq3", mVDSettings->IFREQ3, 0.0f, 0.01f, 256.0f); // 49 was  28
+
 		// int
 		// blend mode 
 		createIntUniform("iBlendmode", mVDSettings->IBLENDMODE, 0); // 50
@@ -210,6 +204,14 @@ VDAnimation::VDAnimation(VDSettingsRef aVDSettings) {
 		createFloatUniform("srcXRight", mVDSettings->SRCXRIGHT, mVDSettings->mRenderWidth, 320.01f, 4280.0f); // 131
 		createFloatUniform("srcYLeft", mVDSettings->SRCYLEFT, 0.0f, 0.0f, 1024.0f); // 132
 		createFloatUniform("srcYRight", mVDSettings->SRCYRIGHT, mVDSettings->mRenderHeight, 0.0f, 1024.0f); // 133
+		// iFreq0  
+		createFloatUniform("iFreq0", mVDSettings->IFREQ0, 0.0f, 0.01f, 256.0f); // 140 was 25 	
+		// iFreq1  
+		createFloatUniform("iFreq1", mVDSettings->IFREQ1, 0.0f, 0.01f, 256.0f); // 141 was 39 was 26
+		// iFreq2  
+		createFloatUniform("iFreq2", mVDSettings->IFREQ2, 0.0f, 0.01f, 256.0f); // 142 was 48 was 27
+		// iFreq3  
+		createFloatUniform("iFreq3", mVDSettings->IFREQ3, 0.0f, 0.01f, 256.0f); // 143 was 49 was  28
 
 		// vec4 kinect2
 		createVec4Uniform("iSpineBase", 200, vec4(320.0f, 240.0f, 0.0f, 0.0f));

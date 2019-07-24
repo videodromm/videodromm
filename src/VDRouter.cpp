@@ -242,7 +242,7 @@ void VDRouter::shutdown() {
 void VDRouter::midiSetup() {
 	stringstream ss;
 	ss << "setupMidi: ";
-
+	CI_LOG_V("midiSetup: " + ss.str());
 	if (mMidiIn0.getNumPorts() > 0)
 	{
 		mMidiIn0.listPorts();
@@ -273,7 +273,7 @@ void VDRouter::midiSetup() {
 		ss << "No MIDI in ports found!" << std::endl;
 	}
 	ss << std::endl;
-
+	CI_LOG_V(ss.str());
 	mVDSettings->mNewMsg = true;
 	mVDSettings->mMsg = ss.str();
 	// midi out
@@ -302,10 +302,11 @@ void VDRouter::midiSetup() {
 	}
 	midiControlType = "none";
 	midiControl = midiPitch = midiVelocity = midiNormalizedValue = midiValue = midiChannel = 0;
+	CI_LOG_V(ss.str());
 }
 
 void VDRouter::openMidiInPort(int i) {
-
+	CI_LOG_V("openMidiInPort: " + toString(i));
 		stringstream ss;
 		if (i < mMidiIn0.getNumPorts()) {
 			if (i == 0) {
@@ -324,6 +325,7 @@ void VDRouter::openMidiInPort(int i) {
 		mMidiInputs[i].isConnected = true;
 		ss << "Opening MIDI in port " << i << " " << mMidiInputs[i].portName << std::endl;
 		mVDSettings->mMsg = ss.str();
+		CI_LOG_V(ss.str());
 		mVDSettings->mNewMsg = true;
 }
 void VDRouter::closeMidiInPort(int i) {
@@ -397,7 +399,7 @@ void VDRouter::openMidiOutPort(int i) {
 	}
 	mVDSettings->mMsg = ss.str();
 	mVDSettings->mNewMsg = true;
-
+	CI_LOG_V(ss.str());
 }
 void VDRouter::closeMidiOutPort(int i) {
 
