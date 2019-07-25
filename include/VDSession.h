@@ -109,6 +109,9 @@ namespace Videodromm {
 		int								getIntUniformValueByName(string aName) {
 			return mVDAnimation->getIntUniformValueByName(aName);
 		};
+		int								getIntUniformValueByIndex(unsigned int aCtrl) {
+			return mVDAnimation->getIntUniformValueByIndex(aCtrl);
+		};
 		bool							getBoolUniformValueByName(string aName) {
 			return mVDAnimation->getBoolUniformValueByName(aName);
 		};
@@ -124,6 +127,9 @@ namespace Videodromm {
 		void							setFloatUniformValueByIndex(unsigned int aCtrl, float aValue) {
 			// done in router mVDAnimation->changeFloatValue(aCtrl, aValue);
 			mVDWebsocket->changeFloatValue(aCtrl, aValue);
+		};
+		void							setIntUniformValueByIndex(unsigned int aCtrl, int aValue) {
+			mVDWebsocket->changeIntValue(aCtrl, aValue);
 		};
 
 		// tempo
@@ -311,6 +317,9 @@ namespace Videodromm {
 		
 		int								getMode() { return mMode; };
 		void							setMode(int aMode) { mMode = aMode; };;
+		void							toggleUI() { mShowUI = !mShowUI; };
+		bool							showUI() { return mShowUI; };
+
 	private:
 		int								mMode;
 		// Settings
@@ -318,7 +327,7 @@ namespace Videodromm {
 		// Utils
 		VDUtilsRef						mVDUtils;
 		// Message router
-		VDRouterRef					mVDRouter;
+		VDRouterRef						mVDRouter;
 		// VDWebsocket
 		VDWebsocketRef					mVDWebsocket;
 		// Animation
@@ -377,7 +386,7 @@ namespace Videodromm {
 		void							updateStream(string * aStringPtr);
 		//! window management
 		int								cmd;
-
+		bool							mShowUI = false;
 		/* 
 			mix
 		*/

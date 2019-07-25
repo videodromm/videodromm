@@ -171,6 +171,10 @@ VDAnimation::VDAnimation(VDSettingsRef aVDSettings) {
 		createIntUniform("iFboA", mVDSettings->IFBOA, 0); // 54
 		// fbo B
 		createIntUniform("iFboB", mVDSettings->IFBOB, 1); // 55
+		// iOutW
+		createIntUniform("iOutW", mVDSettings->IOUTW, mVDSettings->mRenderWidth, 320.0, 4280.0); // 56
+		// iOutH  
+		createIntUniform("iOutH", mVDSettings->IOUTH, mVDSettings->mRenderHeight, 240.0, 2160.0); // 57
 
 		// vec3
 		createVec3Uniform("iResolution", 60, vec3(getFloatUniformValueByName("iResolutionX"), getFloatUniformValueByName("iResolutionY"), 1.0));
@@ -500,8 +504,10 @@ void VDAnimation::createVec4Uniform(string aName, int aCtrlIndex, vec4 aValue) {
 	shaderUniforms[aName].isValid = true;
 	shaderUniforms[aName].vec4Value = aValue;
 }
-void VDAnimation::createIntUniform(string aName, int aCtrlIndex, int aValue) {
+void VDAnimation::createIntUniform(string aName, int aCtrlIndex, int aValue, float aMin, float aMax) {
 	controlIndexes[aCtrlIndex] = aName;
+	shaderUniforms[aName].minValue = aMin;
+	shaderUniforms[aName].maxValue = aMax;
 	shaderUniforms[aName].index = aCtrlIndex;
 	shaderUniforms[aName].uniformType = 5;
 	shaderUniforms[aName].isValid = true;

@@ -189,6 +189,9 @@ namespace Videodromm
 			}
 			return shaderUniforms[getUniformNameForIndex(aIndex)].floatValue;
 		}
+		int								getIntUniformValueByIndex(unsigned int aIndex) {
+			return shaderUniforms[getUniformNameForIndex(aIndex)].intValue;
+		}
 		int								getSampler2DUniformValueByName(string aName) {
 			return shaderUniforms[aName].textureIndex;
 		}
@@ -264,7 +267,7 @@ namespace Videodromm
 		void							createVec2Uniform(string aName, int aCtrlIndex, vec2 aValue = vec2(0.0));
 		void							createVec3Uniform(string aName, int aCtrlIndex, vec3 aValue = vec3(0.0));
 		void							createVec4Uniform(string aName, int aCtrlIndex, vec4 aValue = vec4(0.0));
-		void							createIntUniform(string aName, int aCtrlIndex, int aValue = 1);
+		void							createIntUniform(string aName, int aCtrlIndex, int aValue = 1, float aMin = 0.0f, float aMax = 1.0f);
 		void							createBoolUniform(string aName, int aCtrlIndex, bool aValue = false);
 		//! write a uniforms json file
 		void							saveUniforms();
