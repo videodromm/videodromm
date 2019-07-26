@@ -718,6 +718,17 @@ bool VDSession::handleKeyDown(KeyEvent &event)
 			// ui visibility
 			toggleUI();
 			break;
+		case KeyEvent::KEY_s:
+			for (size_t s = 0; s < getInputTexturesCount(); s++)
+			{
+				if (isAltDown) {
+					setSpeed(s, getSpeed(s) - 0.01f);
+				}
+				else {
+					setSpeed(s, getSpeed(s) + 0.01f);
+				}
+			}			
+			break;
 		default:
 			CI_LOG_V("session keydown: " + toString(event.getCode()));
 			handled = false;
